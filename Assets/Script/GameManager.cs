@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI coinText;
 
     public GameObject gameOverUIObj;
+
+    public bool isGameOver; //ゲームオーバー判定
 
     void Start()
     {
@@ -28,6 +31,7 @@ public class GameManager : MonoBehaviour
 
         currentCoin = 10; //初期所持数
         gameOverUIObj.SetActive(false);
+        isGameOver = false;
     }
 
     void Update()
@@ -38,6 +42,7 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("GameOver");
             gameOverUIObj.SetActive(true);
+            isGameOver = true;
         }
     }
 
@@ -49,5 +54,10 @@ public class GameManager : MonoBehaviour
     public void SubtractionCoin() //コイン減算
     {
         currentCoin--;
+    }
+
+    public void ReStart() //リトライ
+    {
+        SceneManager.LoadScene("GameScene");
     }
 }
