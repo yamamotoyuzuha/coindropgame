@@ -23,7 +23,7 @@ public class CoinManager : MonoBehaviour
 
     void Coin() //コインをランダムに配置する
     {
-        var coins = Random.Range(50, 100);
+        var coins = Random.Range(100, 200);
 
         for(int i = 0; i < coins; i++)
         {
